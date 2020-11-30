@@ -27,7 +27,7 @@ const App = () => {
           {token ? <Route exact path={navigation.home} component={Home} /> : <Route exact path={navigation.login} component={Login} />}
           <Route exact path={navigation.login} component={Login} />
           <Route exact path={navigation.register} component={Registration} />
-          <Redirect to={navigation.home} />
+          <Redirect to='/' />
         </Switch>
       </Suspense>
     </>
