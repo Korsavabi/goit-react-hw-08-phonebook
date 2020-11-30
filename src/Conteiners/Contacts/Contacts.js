@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux';
 
 const Contacts = () => {
     const name = useSelector((state) => state.user.name)
-    // const user = useSelector((state) => state.user)
   const dispatch = useDispatch();
   const token = useSelector((state) => state.token);
 useEffect(()=> {
