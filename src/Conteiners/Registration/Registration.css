@@ -1,3 +1,6 @@
+.div{
+    text-align: center;
+}
 .registration-form{
     display: flex;
     justify-content: center;

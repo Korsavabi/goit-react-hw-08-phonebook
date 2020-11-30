@@ -25,7 +25,7 @@ const Registration = () => {
     }
 
     return (
-        <div>
+        <div className='div'>
             <h1>Registration</h1>
             <form className='registration-form' onSubmit={submitHeandler}>
                 <input name='name' type='text' placeholder='UserName' onChange={inputHeandler} value={form.name} />

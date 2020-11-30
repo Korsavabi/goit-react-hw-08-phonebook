@@ -21,7 +21,7 @@ const Login = () => {
         dispatch(loginOperation(form))
     }
     return (
-        <div>
+        <div className='div'>
             <h1>Login</h1>
             <form className='login-form' onSubmit={submitHeandler}>
                 <input name='email' type='email' placeholder='UserEmail' onChange={inputHeandler} value={form.email} />

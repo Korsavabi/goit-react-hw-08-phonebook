@@ -6,14 +6,14 @@ import { useDispatch } from 'react-redux';
 
 const Contacts = () => {
     const name = useSelector((state) => state.user.name)
-  const dispatch = useDispatch();
-  const token = useSelector((state) => state.token);
-useEffect(()=> {
-    if (token) {
-    dispatch(userCurrentOperation(token))
-    }
+    const dispatch = useDispatch();
+    const token = useSelector((state) => state.token);
+    useEffect(() => {
+        if (token) {
+            dispatch(userCurrentOperation(token))
+        }
 
-},[dispatch, token])
+    }, [dispatch, token])
 
     return (
         <>
