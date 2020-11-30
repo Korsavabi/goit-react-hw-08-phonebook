@@ -3,7 +3,7 @@ import { Switch, Route, Redirect, useHistory } from 'react-router-dom';
 import { navigation } from './constants';
 import Header from './Components/Header/Header';
 import { useSelector } from 'react-redux';
-const Contacts = lazy(() => import('./Conteiners/Contacts/Contacts'));
+const Home = lazy(() => import('./Conteiners/Home/Home'));
 const Login = lazy(() => import('./Conteiners/Login/Login'));
 const Registration = lazy(() => import('./Conteiners/Registration/Registration'));
 
@@ -13,7 +13,7 @@ const App = () => {
 
   useEffect(() => {
     if (token) {
-      history.push(navigation.contacts);
+      history.push(navigation.home);
     } else {
       history.push(navigation.login);
     }
@@ -24,10 +24,10 @@ const App = () => {
       <Header />
       <Suspense fallback={<p>Loading</p>}>
         <Switch>
-          {token ? <Route exact path={navigation.contacts} component={Contacts} /> : <Route exact path={navigation.login} component={Login} />}
+          {token ? <Route exact path={navigation.home} component={Home} /> : <Route exact path={navigation.login} component={Login} />}
           <Route exact path={navigation.login} component={Login} />
           <Route exact path={navigation.register} component={Registration} />
-          <Redirect to={navigation.login} />
+          <Redirect to={navigation.home} />
         </Switch>
       </Suspense>
     </>
