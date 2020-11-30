@@ -24,10 +24,10 @@ const App = () => {
       <Header />
       <Suspense fallback={<p>Loading</p>}>
         <Switch>
-          {token ? <Route path={navigation.contacts} component={Contacts} /> : <Route path={navigation.login} component={Login} />}
-          <Route path={navigation.login} component={Login} />
-          <Route path={navigation.register} component={Registration} />
-          <Redirect to='/' />
+          {token ? <Route exact path={navigation.contacts} component={Contacts} /> : <Route exact path={navigation.login} component={Login} />}
+          <Route exact path={navigation.login} component={Login} />
+          <Route exact path={navigation.register} component={Registration} />
+          <Redirect to={navigation.login} />
         </Switch>
       </Suspense>
     </>
