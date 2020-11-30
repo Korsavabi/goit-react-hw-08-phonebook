@@ -3,6 +3,7 @@ import { loaderOn, loaderOff } from '../action/loader';
 import { setError } from '../action/error';
 import { setToken, resetToken } from '../action/token';
 import { getUser } from '../action/user';
+import { setItem } from '../action/todoList';
 
 export const registrationOperation = (userData) => async (dispatch) => {
     try {
@@ -41,6 +42,7 @@ export const logOutOperation = (token) => async (dispatch) => {
             }
         })
         dispatch(resetToken());
+        dispatch(setItem([]));
     } catch (error) {
         dispatch(setError('LogOut Error'));
     }

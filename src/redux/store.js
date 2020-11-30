@@ -10,7 +10,7 @@ const middleWares =[ownLogger, thunk];
 const persistConfig = {
     key: 'auth',
     storage,
-    whitelist: ['token', 'user']
+    whitelist: ['token']
 }  
 const store = configureStore({
     reducer: persistReducer(persistConfig, rootReducer),
