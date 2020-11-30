@@ -18,7 +18,7 @@ const Header = () => {
     return (
         <AppBar position="static">
             <Toolbar variant="dense">
-                <NavLink exact to={navigation.home} className="nav__link">Home</NavLink>
+                <NavLink exact to={navigation.contacts} className="nav__link">Contact</NavLink>
                 <NavLink exact to={navigation.login} className="nav__link">Login</NavLink>
                 <NavLink exact to={navigation.register} className="nav__link">Registration</NavLink>
                 <button onClick={logOut}>LogOut</button>
