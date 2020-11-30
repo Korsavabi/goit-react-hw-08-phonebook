@@ -8,7 +8,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import './Header.css';
 
 const Header = () => {
-    const { register, login, contacts } = navigation;
     const token = useSelector((state) => state.token);
     const dispatch = useDispatch();
 
@@ -19,9 +18,9 @@ const Header = () => {
     return (
         <AppBar position="static">
             <Toolbar variant="dense">
-                <NavLink exact to={contacts} className="nav__link">Contacts</NavLink>
-                <NavLink exact to={login} className="nav__link">Login</NavLink>
-                <NavLink exact to={register} className="nav__link">Registration</NavLink>
+                <NavLink exact to={navigation.contacts} className="nav__link">Contacts</NavLink>
+                <NavLink exact to={navigation.login} className="nav__link">Login</NavLink>
+                <NavLink exact to={navigation.register} className="nav__link">Registration</NavLink>
                 <button onClick={logOut}>LogOut</button>
             </Toolbar>
         </AppBar>

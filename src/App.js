@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
 import { Switch, Route, Redirect, useHistory } from 'react-router-dom';
 import { navigation } from './constants';
-import Contacts from './Conteiners/Contacts/Contacts';
-import Login from "./Conteiners/Login/Login";
-import Registration from "./Conteiners/Registration/Registration";
 import Header from './Components/Header/Header';
 import { useSelector } from 'react-redux';
+const Contacts = lazy(() => import('./Conteiners/Contacts/Contacts'));
+const Login = lazy(() => import('./Conteiners/Login/Login'));
+const Registration = lazy(() => import('./Conteiners/Registration/Registration'));
 
 const App = () => {
-  const { register } = navigation;
   const token = useSelector((state) => state.token);
   const history = useHistory();
 
@@ -19,16 +18,18 @@ const App = () => {
       history.push(navigation.login);
     }
   }, [history, token])
- 
+
   return (
     <>
       <Header />
-      <Switch>
-        {token ? <Route exact path={navigation.contacts} component={Contacts} /> : <Route exact path={navigation.login} component={Login} />}
-        <Route exact path={navigation.login} component={Login} />
-        <Route exact path={register} component={Registration} />
-        <Redirect to={navigation.login} />
-      </Switch>
+      <Suspense fallback={<p>Loading</p>}>
+        <Switch>
+          {token ? <Route path={navigation.contacts} component={Contacts} /> : <Route path={navigation.login} component={Login} />}
+          <Route path={navigation.login} component={Login} />
+          <Route path={navigation.register} component={Registration} />
+          <Redirect to='/' />
+        </Switch>
+      </Suspense>
     </>
   );
 };
